@@ -1,9 +1,9 @@
 def genaralvars () {
 
-    env.GIT_REPO = 'https://gitlab.com/chaloglez/terraform-lab01.git'
+    env.GIT_REPO = 'https://github.com/ericvr/tf_lab01.git'
     env.GIT_BRANCH = 'main'
-    env.DOCKER_REPO = 'gonzafirma'
-    CONTAINER_PORT= '80'
+    env.DOCKER_REPO = 'eeric466'
+    CONTAINER_PORT= '82'
 
 }
 
