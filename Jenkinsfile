@@ -18,11 +18,11 @@ pipeline {
                 genaralvars()
             }
         }
-        stage ("Get Code") {
-            steps {
-                git branch: "${env.GIT_BRANCH}", url: "${env.GIT_REPO}"
+        //stage ("Get Code") {
+        //  steps {
+          //      git branch: "${env.GIT_BRANCH}", url: "${env.GIT_REPO}"
             }
-        }
+        //}
         stage ("Verify If exist container") {
             steps {
                     script {
