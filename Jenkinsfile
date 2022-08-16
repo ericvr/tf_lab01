@@ -29,7 +29,7 @@ pipeline {
                         DOCKERID = sh (script: "docker ps -f publish=${CONTAINER_PORT} -q", returnStdout: true).trim()
                         if  ( DOCKERID !="" ) {
                             if (fileExists('terraform.tfstate')) {
-                                sh "terraform destroy  --target docker_container.nginx --auto-approve"
+                                sh "terraform destroy  --target docker_container.nginx -var=\"container_port=${CONTAINER_PORT}\" -var=\"reponame=${env.DOCKER_REPO}\" --auto-approve"
                             }
                             else {
                                 sh "docker stop ${DOCKERID}"
@@ -60,7 +60,7 @@ pipeline {
         }
         stage('Executing Terraform Destroy') {
             steps{
-                sh "terraform destroy --target docker_container.nginx --auto-approve"
+                sh "terraform destroy --target docker_container.nginx -var=\"container_port=${CONTAINER_PORT}\" -var=\"reponame=${env.DOCKER_REPO}\" --auto-approve"
             }
         }
     }
